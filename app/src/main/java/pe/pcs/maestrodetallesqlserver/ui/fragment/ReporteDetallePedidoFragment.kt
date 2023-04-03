@@ -9,7 +9,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import pe.pcs.maestrodetallesqlserver.R
 import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
 import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
 import pe.pcs.maestrodetallesqlserver.data.ResponseStatus
@@ -45,9 +44,13 @@ class ReporteDetallePedidoFragment : Fragment() {
             when(it) {
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
-                    UtilsMessage.showAlertOk(
-                        "ERROR", it.message, requireContext()
-                    )
+
+                    if(it.message.isNotEmpty())
+                        UtilsMessage.showAlertOk(
+                            "ERROR", it.message, requireContext()
+                        )
+
+                    it.message = ""
                 }
                 is ResponseStatus.Loading -> binding.progressBar.isVisible = true
                 is ResponseStatus.Success -> binding.progressBar.isVisible = false

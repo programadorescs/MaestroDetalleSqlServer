@@ -40,27 +40,29 @@ class OperacionProductoFragment : Fragment() {
         }
 
         viewModel.statusInt.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is ResponseStatus.Loading -> binding.progressBar.isVisible = true
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
-                    UtilsMessage.showAlertOk(
-                        "ERROR", it.message, requireContext()
-                    )
+
+                    if(it.message.isNotEmpty())
+                        UtilsMessage.showAlertOk(
+                            "ERROR", it.message, requireContext()
+                        )
+
+                    it.message = ""
                 }
                 is ResponseStatus.Success -> {
                     binding.progressBar.isVisible = false
-                    if(it.data > 0) {
+
+                    if (it.data > 0) {
                         UtilsMessage.showToast("¡Felicidades, el registro fue grabado!")
                         UtilsCommon.limpiarEditText(requireView())
                         binding.etDescripcion.requestFocus()
                         viewModel.setItemProducto(null)
-                    } else if(it.data != -8)
-                        UtilsMessage.showAlertOk(
-                            "ERROR DESCONOCIDO", "No se puedo realizar la operacion", requireContext()
-                        )
+                    }
 
-                    it.data = -8
+                    it.data = 0
                 }
             }
         }
@@ -68,12 +70,14 @@ class OperacionProductoFragment : Fragment() {
         binding.fabGrabar.setOnClickListener {
             UtilsCommon.ocultarTeclado(it)
 
-            if(binding.etDescripcion.text.toString().isEmpty() ||
-                binding.etPrecio.text.toString().isEmpty()) {
+            if (binding.etDescripcion.text.toString().isEmpty() ||
+                binding.etPrecio.text.toString().isEmpty()
+            ) {
                 UtilsMessage.showAlertOk(
                     "ADVERTENCIA",
                     "Todos los datos son requeridos.",
-                    requireContext())
+                    requireContext()
+                )
 
                 return@setOnClickListener
             }

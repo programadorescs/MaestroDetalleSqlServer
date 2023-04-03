@@ -48,12 +48,16 @@ class ProductoFragment : Fragment(), ProductoAdapter.IOnClickListener {
         }
 
         viewModel.status.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
-                    UtilsMessage.showAlertOk(
-                        "ERROR", it.message, requireContext()
-                    )
+
+                    if(it.message.isNotEmpty())
+                        UtilsMessage.showAlertOk(
+                            "ERROR", it.message, requireContext()
+                        )
+
+                    it.message = ""
                 }
                 is ResponseStatus.Loading -> binding.progressBar.isVisible = true
                 is ResponseStatus.Success -> binding.progressBar.isVisible = false
@@ -61,24 +65,25 @@ class ProductoFragment : Fragment(), ProductoAdapter.IOnClickListener {
         }
 
         viewModel.statusInt.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
-                    UtilsMessage.showAlertOk(
-                        "ERROR", it.message, requireContext()
-                    )
+
+                    if(it.message.isNotEmpty())
+                        UtilsMessage.showAlertOk(
+                            "ERROR", it.message, requireContext()
+                        )
+
+                    it.message = ""
                 }
                 is ResponseStatus.Loading -> binding.progressBar.isVisible = true
                 is ResponseStatus.Success -> {
                     binding.progressBar.isVisible = false
-                    if(it.data > 0)
-                        UtilsMessage.showToast("¡Felicidades, registro anulado correctamente!")
-                    else if(it.data != -8)
-                        UtilsMessage.showAlertOk(
-                            "ERROR DESCONOCIDO", "No se puedo realizar la operacion", requireContext()
-                        )
 
-                    it.data = -8
+                    if (it.data > 0)
+                        UtilsMessage.showToast("¡Felicidades, registro anulado correctamente!")
+
+                    it.data = 0
                 }
             }
         }

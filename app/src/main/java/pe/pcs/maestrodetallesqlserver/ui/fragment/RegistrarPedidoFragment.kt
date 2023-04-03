@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
-import pe.pcs.maestrodetallesqlserver.core.UtilsDate
 import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
 import pe.pcs.maestrodetallesqlserver.data.ResponseStatus
 import pe.pcs.maestrodetallesqlserver.data.model.DetallePedidoModel
@@ -54,17 +53,22 @@ class RegistrarPedidoFragment : Fragment(), CarritoAdapter.IOnClickListener {
         }
 
         viewModel.statusInt.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is ResponseStatus.Loading -> binding.progressBar.isVisible = true
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
-                    UtilsMessage.showAlertOk(
-                        "ERROR", it.message, requireContext()
-                    )
+
+                    if(it.message.isNotEmpty())
+                        UtilsMessage.showAlertOk(
+                            "ERROR", it.message, requireContext()
+                        )
+
+                    it.message = ""
                 }
                 is ResponseStatus.Success -> {
                     binding.progressBar.isVisible = false
-                    if(it.data > 0) {
+
+                    if (it.data > 0) {
                         MaterialAlertDialogBuilder(requireContext()).apply {
                             setTitle("CONFORME")
                             setMessage("¡El pedido fue registrado correctamente!")
@@ -79,12 +83,9 @@ class RegistrarPedidoFragment : Fragment(), CarritoAdapter.IOnClickListener {
                                 dialog.cancel()
                             }
                         }.create().show()
-                    } else if(it.data != -8)
-                        UtilsMessage.showAlertOk(
-                            "ERROR DESCONOCIDO", "No se puedo realizar la operacion", requireContext()
-                        )
+                    }
 
-                    it.data = -8
+                    it.data = 0
                 }
             }
         }
@@ -92,7 +93,7 @@ class RegistrarPedidoFragment : Fragment(), CarritoAdapter.IOnClickListener {
         binding.fabCarrito.setOnClickListener {
             UtilsCommon.ocultarTeclado(it)
 
-            if(!viewModel.listaCarrito.value.isNullOrEmpty()) {
+            if (!viewModel.listaCarrito.value.isNullOrEmpty()) {
                 val pedido = PedidoModel().apply {
                     fecha = Date(Calendar.getInstance().time.time)
                     total = viewModel.totalImporte.value!!
@@ -106,7 +107,8 @@ class RegistrarPedidoFragment : Fragment(), CarritoAdapter.IOnClickListener {
                 UtilsMessage.showAlertOk(
                     "ADVERTENCIA",
                     "No exsite items en el carrito",
-                    requireContext())
+                    requireContext()
+                )
             }
         }
 
@@ -127,10 +129,10 @@ class RegistrarPedidoFragment : Fragment(), CarritoAdapter.IOnClickListener {
             setTitle("QUITAR")
             setMessage("¿Desea quitar el registro: ${entidad.mProducto?.descripcion}?")
 
-            setPositiveButton("SI") {dialog, _ ->
+            setPositiveButton("SI") { dialog, _ ->
                 viewModel.quitarProductoCarrito(entidad)
 
-                if(viewModel.listaCarrito.value?.size!! == 0) {
+                if (viewModel.listaCarrito.value?.size!! == 0) {
                     binding.etCliente.setText("")
                     Navigation.findNavController(requireView()).popBackStack()
                 }
@@ -138,7 +140,7 @@ class RegistrarPedidoFragment : Fragment(), CarritoAdapter.IOnClickListener {
                 dialog.dismiss()
             }
 
-            setNegativeButton("NO"){ dialog, _ ->
+            setNegativeButton("NO") { dialog, _ ->
                 dialog.cancel()
             }
         }.create().show()

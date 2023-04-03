@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -17,7 +16,6 @@ import pe.pcs.maestrodetallesqlserver.R
 import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
 import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
 import pe.pcs.maestrodetallesqlserver.data.ResponseStatus
-import pe.pcs.maestrodetallesqlserver.data.model.DetallePedidoModel
 import pe.pcs.maestrodetallesqlserver.data.model.ProductoModel
 import pe.pcs.maestrodetallesqlserver.databinding.FragmentCatalogoProductoBinding
 import pe.pcs.maestrodetallesqlserver.ui.adapter.CatalogoAdapter
@@ -54,9 +52,13 @@ class CatalogoProductoFragment : Fragment(), CatalogoAdapter.IOnClickListener,
             when (it) {
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
-                    UtilsMessage.showAlertOk(
-                        "ERROR", it.message, requireContext()
-                    )
+
+                    if(it.message.isNotEmpty())
+                        UtilsMessage.showAlertOk(
+                            "ERROR", it.message, requireContext()
+                        )
+
+                    it.message = ""
                 }
                 is ResponseStatus.Loading -> binding.progressBar.isVisible = true
                 is ResponseStatus.Success -> binding.progressBar.isVisible = false
@@ -65,6 +67,13 @@ class CatalogoProductoFragment : Fragment(), CatalogoAdapter.IOnClickListener,
 
         viewModel.totalItem.observe(viewLifecycleOwner) {
             binding.fabCarrito.text = "Carrito [ ${it} ]"
+        }
+
+        viewModel.mensaje.observe(viewLifecycleOwner) {
+            if(it.isEmpty()) return@observe
+
+            UtilsMessage.showToast(it)
+            viewModel.setLimpiarMensaje()
         }
 
         binding.tilBuscar.setEndIconOnClickListener {
@@ -130,32 +139,11 @@ class CatalogoProductoFragment : Fragment(), CatalogoAdapter.IOnClickListener,
     }
 
     override fun enviarItem(cantidad: Int, precio: Double) {
-        // Ocurre cada vez que llega un nuevo producto con su cantidad
+        // Ocurre cada vez que llega una cantidad y precio
 
         flagCantidad = false
-        if (cantidad == 0 || precio == 0.0) return
 
-        for (det in viewModel.listaCarrito.value!!) {
-            if (det.mProducto?.id == viewModel.itemProducto.value?.id) {
-                Toast.makeText(context, "Ya existe este elemento en su lista...", Toast.LENGTH_LONG)
-                    .show()
-                viewModel.setItemProducto(null)
-                return
-            }
-        }
-
-        if (viewModel.itemProducto.value == null) return
-
-        val entidad = DetallePedidoModel().apply {
-            this.mProducto = viewModel.itemProducto.value
-            this.cantidad = cantidad
-            this.precio = precio
-            this.importe = cantidad * precio
-        }
-
-        viewModel.agregarProductoCarrito(entidad)
-        viewModel.setItemProducto(null)
+        viewModel.agregarProductoCarrito(cantidad, precio)
     }
-
 
 }

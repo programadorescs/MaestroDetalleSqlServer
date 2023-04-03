@@ -120,7 +120,9 @@ class PedidoDao @Inject constructor(private val jtdsConnection: JtdsConnection) 
             cn.commit()
             cn.autoCommit = true
 
-            return keyPedido
+            return if (keyPedido > 0) keyPedido
+            else
+                throw Exception("Error desconocido, no se puedo realizar la operación")
         } catch (e: Exception) {
             try {
                 cn.rollback()
@@ -151,7 +153,9 @@ class PedidoDao @Inject constructor(private val jtdsConnection: JtdsConnection) 
             ps = jtdsConnection.getConnection().prepareStatement(anular)
             ps.setInt(1, idPedido)
 
-            return if (ps.executeUpdate() > 0) 1 else 0
+            return if (ps.executeUpdate() > 0) 1
+            else
+                throw Exception("Error desconocido, no se puedo realizar la operación")
         } catch (e: Exception) {
             throw Exception(e.message)
         }

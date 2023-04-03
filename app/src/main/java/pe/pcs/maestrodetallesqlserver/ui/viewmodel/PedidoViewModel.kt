@@ -38,8 +38,15 @@ class PedidoViewModel @Inject constructor(
     private val _statusInt = MutableLiveData<ResponseStatus<Int>>()
     val statusInt: LiveData<ResponseStatus<Int>> = _statusInt
 
+    private val _mensaje = MutableLiveData<String>()
+    val mensaje: LiveData<String> = _mensaje
+
     init {
         _listaCarrito.value = mutableListOf()
+    }
+
+    fun setLimpiarMensaje() {
+        _mensaje.postValue("")
     }
 
     // Para el item seleccionado
@@ -47,9 +54,30 @@ class PedidoViewModel @Inject constructor(
         _itemProducto.value = item
     }
 
-    // Para el item seleccionado
-    fun agregarProductoCarrito(item: DetallePedidoModel) {
-        _listaCarrito.value?.add(item)
+    fun agregarProductoCarrito(cantidad: Int, precio: Double) {
+        if (cantidad == 0 || precio == 0.0) return
+
+        if (itemProducto.value == null) return
+
+        for (det in listaCarrito.value!!) {
+            if (det.mProducto?.id == itemProducto.value?.id) {
+                setItemProducto(null)
+                _mensaje.postValue("Ya existe este elemento en su lista...")
+                return
+            }
+        }
+
+        val entidad = DetallePedidoModel().apply {
+            this.mProducto = itemProducto.value
+            this.cantidad = cantidad
+            this.precio = precio
+            this.importe = cantidad * precio
+        }
+
+        setItemProducto(null)
+
+        // Agrega el producto a la lista
+        _listaCarrito.value?.add(entidad)
 
         _totalItem.postValue(
             listaCarrito.value?.sumOf { it.cantidad }

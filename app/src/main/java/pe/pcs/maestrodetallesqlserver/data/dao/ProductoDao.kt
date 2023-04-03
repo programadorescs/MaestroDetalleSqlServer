@@ -40,14 +40,14 @@ class ProductoDao @Inject constructor(private val jtdsConnection: JtdsConnection
     fun registrar(entidad: ProductoModel): Int {
         try {
             val verificar = "SELECT isnull(Count(id), 0) FROM Producto WHERE descripcion=?;"
-            val insertar ="INSERT INTO Producto (descripcion, precio) VALUES (?, ?);"
+            val insertar = "INSERT INTO Producto (descripcion, precio) VALUES (?, ?);"
 
             var ps = jtdsConnection.getConnection().prepareStatement(verificar)
             ps.setString(1, entidad.descripcion)
 
             val rs = ps.executeQuery()
 
-            if(rs.next() && rs.getInt(1) > 0) {
+            if (rs.next() && rs.getInt(1) > 0) {
                 rs.close()
                 throw Exception("La descripcion ya existe en la DB.")
             }
@@ -57,7 +57,9 @@ class ProductoDao @Inject constructor(private val jtdsConnection: JtdsConnection
             ps.setString(1, entidad.descripcion)
             ps.setDouble(2, entidad.precio)
 
-            return if(ps.executeUpdate() > 0) 1 else 0
+            return if (ps.executeUpdate() > 0) 1
+            else
+                throw Exception("Error desconocido, no se puedo realizar la operación")
         } catch (e: Exception) {
             throw Exception(e.message)
         }
@@ -65,8 +67,9 @@ class ProductoDao @Inject constructor(private val jtdsConnection: JtdsConnection
 
     fun actualizar(entidad: ProductoModel): Int {
         try {
-            val verificar = "SELECT isnull(Count(id), 0) FROM Producto WHERE id<>? AND descripcion=?;"
-            val actualizar ="UPDATE Producto SET descripcion=?, precio=? WHERE id= ?;"
+            val verificar =
+                "SELECT isnull(Count(id), 0) FROM Producto WHERE id<>? AND descripcion=?;"
+            val actualizar = "UPDATE Producto SET descripcion=?, precio=? WHERE id= ?;"
 
             var ps = jtdsConnection.getConnection().prepareStatement(verificar)
             ps.setInt(1, entidad.id)
@@ -74,7 +77,7 @@ class ProductoDao @Inject constructor(private val jtdsConnection: JtdsConnection
 
             val rs = ps.executeQuery()
 
-            if(rs.next() && rs.getInt(1) > 0) {
+            if (rs.next() && rs.getInt(1) > 0) {
                 rs.close()
                 throw Exception("El producto ya existe en la DB.")
             }
@@ -85,7 +88,9 @@ class ProductoDao @Inject constructor(private val jtdsConnection: JtdsConnection
             ps.setDouble(2, entidad.precio)
             ps.setInt(3, entidad.id)
 
-            return if(ps.executeUpdate() > 0) 1 else 0
+            return if (ps.executeUpdate() > 0) 1
+            else
+                throw Exception("Error desconocido, no se puedo realizar la operación")
         } catch (e: Exception) {
             throw Exception(e.message)
         }
@@ -94,14 +99,14 @@ class ProductoDao @Inject constructor(private val jtdsConnection: JtdsConnection
     fun eliminar(entidad: ProductoModel): Int {
         try {
             val verificar = "SELECT isnull(Count(id), 0) FROM DetallePedido WHERE idproducto=?;"
-            val eliminar ="DELETE FROM Producto WHERE id= ?;"
+            val eliminar = "DELETE FROM Producto WHERE id= ?;"
 
             var ps = jtdsConnection.getConnection().prepareStatement(verificar)
             ps.setInt(1, entidad.id)
 
             val rs = ps.executeQuery()
 
-            if(rs.next() && rs.getInt(1) > 0) {
+            if (rs.next() && rs.getInt(1) > 0) {
                 rs.close()
                 throw Exception("El producto esta relacionado a otras entidades, imposible eliminar.")
             }
@@ -110,7 +115,9 @@ class ProductoDao @Inject constructor(private val jtdsConnection: JtdsConnection
             ps.clearParameters()
             ps.setInt(1, entidad.id)
 
-            return if(ps.executeUpdate() > 0) 1 else 0
+            return if (ps.executeUpdate() > 0) 1
+            else
+                throw Exception("Error desconocido, no se puedo realizar la operación")
         } catch (e: Exception) {
             throw Exception(e.message)
         }
