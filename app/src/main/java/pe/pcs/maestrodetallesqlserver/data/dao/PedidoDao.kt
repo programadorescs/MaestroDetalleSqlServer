@@ -122,7 +122,7 @@ class PedidoDao @Inject constructor(private val jtdsConnection: JtdsConnection) 
 
             return if (keyPedido > 0) keyPedido
             else
-                throw Exception("Error desconocido, no se puedo realizar la operación")
+                throw Exception("Error desconocido, NO se concreto la operación")
         } catch (e: Exception) {
             try {
                 cn.rollback()
