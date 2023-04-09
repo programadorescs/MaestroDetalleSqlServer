@@ -73,10 +73,10 @@ Insert Into Producto(descripcion, precio) Values('Galleta soda grande', 1.8);
 
 Este proceso sera obligatorio para que la app se comunique con la DB, dichos datos (ip, puerto, usuario y clave) serán almacenados de forma encriptada. Los datos que se muestran son solo de ejemplo, ud. deberá de ingresar sus propios datos
 
-![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/Screenshot_20230406_235834_pe.pcs.maestrodetallesqlserver.jpg)
+![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/Screenshot_20230409_105550.jpg)
 
 Datos del usuario en el servidor (Aplicar según su caso)
-
+![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/User_Server.png)
 
 ### Menú principal
 ![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/Screenshot_20230401_021841_pe.pcs.maestrodetallesqlserver.jpg)
