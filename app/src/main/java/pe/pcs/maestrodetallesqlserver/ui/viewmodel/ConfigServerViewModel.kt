@@ -47,6 +47,8 @@ class ConfigServerViewModel: ViewModel() {
 
             if(result.isNullOrEmpty())
                 _msgError.postValue("El servidor NO esta configurado...")
+            else
+                _msgExito.postValue("Configurado")
         }
     }
 
@@ -59,7 +61,7 @@ class ConfigServerViewModel: ViewModel() {
                     PreferencesProvider.setConfigurarServer(
                         UtilsSecurity.cifrarDato(cadena)
                     )
-                    "La configuración del servidor fue exitoso"
+                    "La configuración del servidor fue exitoso, ya puede ingresar a la app."
                 } catch (e: Exception) {
                     _msgError.postValue(e.message)
                     ""

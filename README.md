@@ -69,6 +69,15 @@ Insert Into Producto(descripcion, precio) Values('Galleta soda grande', 1.8);
 
 ## Imagenes de la app
 
+### Configurar server
+
+Este proceso sera obligatorio para que la app se comunique con la DB, dichos datos (ip, puerto, usuario y clave) serán almacenados de forma encriptada. Los datos que se muestran son solo de ejemplo, ud. deberá de ingresar sus propios datos
+
+![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/Screenshot_20230406_235834_pe.pcs.maestrodetallesqlserver.jpg)
+
+Datos del usuario en el servidor (Aplicar según su caso)
+
+
 ### Menú principal
 ![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/Screenshot_20230401_021841_pe.pcs.maestrodetallesqlserver.jpg)
 
@@ -97,12 +106,6 @@ Insert Into Producto(descripcion, precio) Values('Galleta soda grande', 1.8);
 
 ### Muestra el detalle de un pedido realizado
 ![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/Screenshot_20230401_023104_pe.pcs.maestrodetallesqlserver.jpg)
-
-### Configurar server
-
-Este proceso sera obligatorio para que la app se comunique con la DB, dichos datos (ip, puerto, usuario y clave) serán almacenados de forma encriptada. Los datos que se muestran son solo de ejemplo, ud. deberá de ingresar sus propios datos
-
-![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/Screenshot_20230406_235834_pe.pcs.maestrodetallesqlserver.jpg)
 
 ### Acerca de
 ![Image text](https://github.com/programadorescs/MaestroDetalleSqlServer/blob/master/app/src/main/assets/Screenshot_20230401_023118_pe.pcs.maestrodetallesqlserver.jpg)

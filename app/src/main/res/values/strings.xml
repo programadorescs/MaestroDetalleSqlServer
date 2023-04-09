@@ -11,7 +11,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
-    <string name="app_version">v1.0.4</string>
+    <string name="app_version">v1.0.7</string>
 
     <string name="menu_producto">Productos</string>
     <string name="contentDescripcion">-</string>
@@ -51,4 +51,9 @@
     <string name="usuario_server">Usuario server</string>
     <string name="clave_usuario_server">Clave usuario server</string>
     <string name="mensaje">Es obligatorio la configuración de los datos del servidor ya que sin éstos datos será imposible conectarse con la DB. Necesitamos obligatoriamente la ip del servidor, el puerto, el nombre de usuario y clave. Éste usuario debe tener acceso de lectura y escritura a la DB.</string>
+    <string name="maestro_detalle_sqlserver">Maestro Detalle SqlServer</string>
+    <string name="subtitulo_inicio">Esta actividad seria como el login de la app, para este caso no sera necesario implementarlo. Presione en la parte inferior derecha para configurar los datos del servidor para poder acceder a la base de datos e ingresar a la app.</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="configurar_servidor">Configurar Servidor</string>
+    <string name="ip_servidor">IP Servidor (192.168.1.77)</string>
 </resources>

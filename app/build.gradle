@@ -16,8 +16,8 @@ android {
         applicationId "pe.pcs.maestrodetallesqlserver"
         minSdk 24
         targetSdk 33
-        versionCode 4
-        versionName "1.0.4"
+        versionCode 7
+        versionName "1.0.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

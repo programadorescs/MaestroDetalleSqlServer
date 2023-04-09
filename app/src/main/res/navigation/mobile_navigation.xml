@@ -58,10 +58,5 @@
         android:name="pe.pcs.maestrodetallesqlserver.ui.fragment.AcercaDeFragment"
         android:label="Acerca de"
         tools:layout="@layout/fragment_acerca_de" />
-    <fragment
-        android:id="@+id/nav_config_server"
-        android:name="pe.pcs.maestrodetallesqlserver.ui.fragment.ConfigServerFragment"
-        android:label="Configurar Server"
-        tools:layout="@layout/fragment_config_server" />
 
 </navigation>

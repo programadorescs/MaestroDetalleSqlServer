@@ -26,11 +26,6 @@
     <item android:title="App">
         <menu>
             <item
-                android:id="@+id/nav_config_server"
-                android:icon="@drawable/ic_dns"
-                android:title="Configurar server" />
-
-            <item
                 android:id="@+id/nav_acerca_de"
                 android:icon="@drawable/ic_info"
                 android:title="Acerca de" />
