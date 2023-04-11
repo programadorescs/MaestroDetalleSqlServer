@@ -28,7 +28,7 @@ class ConfigServerDialog : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        binding = DialogoConfigServerBinding.inflate(LayoutInflater.from(requireContext()))
+        binding = DialogoConfigServerBinding.inflate(onGetLayoutInflater(savedInstanceState))
 
         viewModel.progressBar.observe(this) {
             binding.progressBar.isVisible = it
