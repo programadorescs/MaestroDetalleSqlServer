@@ -52,7 +52,7 @@ class ProductoFragment : Fragment(), ProductoAdapter.IOnClickListener {
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
 
-                    if(it.message.isNotEmpty())
+                    if (it.message.isNotEmpty())
                         UtilsMessage.showAlertOk(
                             "ERROR", it.message, requireContext()
                         )
@@ -69,7 +69,7 @@ class ProductoFragment : Fragment(), ProductoAdapter.IOnClickListener {
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
 
-                    if(it.message.isNotEmpty())
+                    if (it.message.isNotEmpty())
                         UtilsMessage.showAlertOk(
                             "ERROR", it.message, requireContext()
                         )

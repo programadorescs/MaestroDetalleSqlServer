@@ -168,10 +168,6 @@ class PedidoViewModel @Inject constructor(
     }
 
     private fun handleResponseStatusInt(responseStatus: ResponseStatus<Int>) {
-        if (responseStatus is ResponseStatus.Success) {
-            _statusInt.value = responseStatus
-        }
-
         _statusInt.value = responseStatus
     }
 

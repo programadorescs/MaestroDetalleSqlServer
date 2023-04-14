@@ -3,7 +3,6 @@ package pe.pcs.maestrodetallesqlserver.ui.dialog
 import android.app.Dialog
 import android.os.Bundle
 import android.text.InputType
-import android.view.LayoutInflater
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import pe.pcs.maestrodetallesqlserver.core.UtilsCommon

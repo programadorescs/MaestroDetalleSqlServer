@@ -22,7 +22,6 @@ import pe.pcs.maestrodetallesqlserver.databinding.FragmentReportePedidoBinding
 import pe.pcs.maestrodetallesqlserver.ui.adapter.ReportePedidoAdapter
 import pe.pcs.maestrodetallesqlserver.ui.viewmodel.ReportePedidoViewModel
 
-
 @AndroidEntryPoint
 class ReportePedidoFragment : Fragment(), ReportePedidoAdapter.IOnClickListener {
 
@@ -53,7 +52,7 @@ class ReportePedidoFragment : Fragment(), ReportePedidoAdapter.IOnClickListener 
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
 
-                    if(it.message.isNotEmpty())
+                    if (it.message.isNotEmpty())
                         UtilsMessage.showAlertOk(
                             "ERROR", it.message, requireContext()
                         )
@@ -70,7 +69,7 @@ class ReportePedidoFragment : Fragment(), ReportePedidoAdapter.IOnClickListener 
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
 
-                    if(it.message.isNotEmpty())
+                    if (it.message.isNotEmpty())
                         UtilsMessage.showAlertOk(
                             "ERROR", it.message, requireContext()
                         )

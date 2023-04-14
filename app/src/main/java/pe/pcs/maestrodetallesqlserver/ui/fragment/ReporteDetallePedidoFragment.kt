@@ -41,11 +41,11 @@ class ReporteDetallePedidoFragment : Fragment() {
         }
 
         viewModel.statusListaDetalle.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is ResponseStatus.Error -> {
                     binding.progressBar.isVisible = false
 
-                    if(it.message.isNotEmpty())
+                    if (it.message.isNotEmpty())
                         UtilsMessage.showAlertOk(
                             "ERROR", it.message, requireContext()
                         )
