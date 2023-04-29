@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
 import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
-import pe.pcs.maestrodetallesqlserver.data.ResponseStatus
+import pe.pcs.maestrodetallesqlserver.core.ResponseStatus
 import pe.pcs.maestrodetallesqlserver.data.model.ProductoModel
 import pe.pcs.maestrodetallesqlserver.databinding.FragmentOperacionProductoBinding
 import pe.pcs.maestrodetallesqlserver.ui.viewmodel.ProductoViewModel

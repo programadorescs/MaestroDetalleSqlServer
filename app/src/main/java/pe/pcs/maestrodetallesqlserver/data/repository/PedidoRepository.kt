@@ -1,9 +1,9 @@
 package pe.pcs.maestrodetallesqlserver.data.repository
 
-import pe.pcs.maestrodetallesqlserver.data.ResponseStatus
+import pe.pcs.maestrodetallesqlserver.core.ResponseStatus
 import pe.pcs.maestrodetallesqlserver.data.dao.PedidoDao
 import pe.pcs.maestrodetallesqlserver.data.dao.ProductoDao
-import pe.pcs.maestrodetallesqlserver.data.makeCall
+import pe.pcs.maestrodetallesqlserver.core.makeCall
 import pe.pcs.maestrodetallesqlserver.data.model.DetallePedidoModel
 import pe.pcs.maestrodetallesqlserver.data.model.PedidoModel
 import pe.pcs.maestrodetallesqlserver.data.model.ProductoModel

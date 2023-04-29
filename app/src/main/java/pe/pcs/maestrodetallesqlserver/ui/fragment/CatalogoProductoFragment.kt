@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import pe.pcs.maestrodetallesqlserver.R
 import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
 import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
-import pe.pcs.maestrodetallesqlserver.data.ResponseStatus
+import pe.pcs.maestrodetallesqlserver.core.ResponseStatus
 import pe.pcs.maestrodetallesqlserver.data.model.ProductoModel
 import pe.pcs.maestrodetallesqlserver.databinding.FragmentCatalogoProductoBinding
 import pe.pcs.maestrodetallesqlserver.ui.adapter.CatalogoAdapter

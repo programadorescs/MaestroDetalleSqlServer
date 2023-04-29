@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import pe.pcs.maestrodetallesqlserver.data.ResponseStatus
+import pe.pcs.maestrodetallesqlserver.core.ResponseStatus
 import pe.pcs.maestrodetallesqlserver.data.model.ProductoModel
 import pe.pcs.maestrodetallesqlserver.data.repository.ProductoRepository
 import javax.inject.Inject

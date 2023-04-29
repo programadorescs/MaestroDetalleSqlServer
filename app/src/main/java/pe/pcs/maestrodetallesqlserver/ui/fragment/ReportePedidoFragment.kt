@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import pe.pcs.maestrodetallesqlserver.R
 import pe.pcs.maestrodetallesqlserver.core.UtilsDate
 import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
-import pe.pcs.maestrodetallesqlserver.data.ResponseStatus
+import pe.pcs.maestrodetallesqlserver.core.ResponseStatus
 import pe.pcs.maestrodetallesqlserver.data.model.PedidoModel
 import pe.pcs.maestrodetallesqlserver.databinding.FragmentReportePedidoBinding
 import pe.pcs.maestrodetallesqlserver.ui.adapter.ReportePedidoAdapter
