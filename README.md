@@ -4,9 +4,9 @@ Este proyecto es un ejemplo de una aplicación de maestro-detalle que utiliza SQ
 
 ## Requisitos
 
-- Android Studio Electric Eel | 2022.1.1 Patch 1 o superior.
-- Gradle 7.5 o superior.
-- Kotlin 1.8.10 o superior.
+- Android Studio Flamingo | 2022.2.1 Patch 1 o superior.
+- Gradle 8.0.1 o superior.
+- Kotlin 1.8.20 o superior.
 
 ## Dependencias
 
