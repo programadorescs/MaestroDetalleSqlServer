@@ -4,8 +4,8 @@ Este proyecto es un ejemplo de una aplicación de maestro-detalle que utiliza SQ
 
 ## Requisitos
 
-- Android Studio Flamingo | 2022.2.1 Patch 1 o superior.
-- Gradle 8.0.1 o superior.
+- Android Studio Flamingo | 2022.2.1 Patch 2 o superior.
+- Gradle 8.0.2 o superior.
 - Kotlin 1.8.20 o superior.
 
 ## Dependencias
