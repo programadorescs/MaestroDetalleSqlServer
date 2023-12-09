@@ -1,4 +1,4 @@
-package pe.pcs.maestrodetallesqlserver.core
+package pe.pcs.maestrodetallesqlserver.common
 
 import android.content.Context
 import pe.pcs.maestrodetallesqlserver.MaestroDetalleSqlServerApp

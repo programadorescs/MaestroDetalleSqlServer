@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
+import pe.pcs.maestrodetallesqlserver.common.UtilsCommon
 import pe.pcs.maestrodetallesqlserver.data.model.ProductoModel
 import pe.pcs.maestrodetallesqlserver.databinding.ItemsProductoBinding
 

@@ -4,9 +4,10 @@ Este proyecto es un ejemplo de una aplicación de maestro-detalle que utiliza SQ
 
 ## Requisitos
 
-- Android Studio Flamingo | 2022.2.1 Patch 2 o superior.
-- Gradle 8.0.2 o superior.
-- Kotlin 1.8.20 o superior.
+- Android Studio Hedgehog | 2023.1.1 o superior.
+- Android Gradle Plugin Version 8.2.0
+- Gradle Version 8.2
+- Kotlin 1.9.10 o superior.
 
 ## Dependencias
 
@@ -17,7 +18,7 @@ Este proyecto es un ejemplo de una aplicación de maestro-detalle que utiliza SQ
 
 ## Estructura del proyecto
 
-- core: Contiene las clases comunes para la implementación de mensajes, fechas y demas utilidades.
+- common: Contiene las clases comunes para la implementación de mensajes, fechas y demás utilidades.
 - data: Contiene las clases para la implementación de la base de datos y el repositorio.
 - di: Contiene las clases para la configuración de Dagger Hilt.
 - ui: Contiene las clases para la implementación de la interfaz de usuario, incluyendo los Fragments y los ViewModels.

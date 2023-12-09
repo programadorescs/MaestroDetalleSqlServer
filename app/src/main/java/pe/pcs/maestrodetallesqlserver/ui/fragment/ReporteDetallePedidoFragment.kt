@@ -9,9 +9,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
-import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
-import pe.pcs.maestrodetallesqlserver.core.ResponseStatus
+import pe.pcs.maestrodetallesqlserver.common.UtilsCommon
+import pe.pcs.maestrodetallesqlserver.common.UtilsMessage
+import pe.pcs.maestrodetallesqlserver.common.ResponseStatus
 import pe.pcs.maestrodetallesqlserver.databinding.FragmentReporteDetallePedidoBinding
 import pe.pcs.maestrodetallesqlserver.ui.adapter.ReporteDetallePedidoAdapter
 import pe.pcs.maestrodetallesqlserver.ui.viewmodel.ReportePedidoViewModel

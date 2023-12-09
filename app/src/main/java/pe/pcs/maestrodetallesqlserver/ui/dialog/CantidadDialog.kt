@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.text.InputType
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
+import pe.pcs.maestrodetallesqlserver.common.UtilsCommon
 import pe.pcs.maestrodetallesqlserver.databinding.CuadroCantidadBinding
 
 class CantidadDialog: DialogFragment() {

@@ -1,8 +1,8 @@
 package pe.pcs.maestrodetallesqlserver.data.database
 
-import pe.pcs.maestrodetallesqlserver.core.PreferencesKey
-import pe.pcs.maestrodetallesqlserver.core.PreferencesProvider
-import pe.pcs.maestrodetallesqlserver.core.UtilsSecurity
+import pe.pcs.maestrodetallesqlserver.common.PreferencesKey
+import pe.pcs.maestrodetallesqlserver.common.PreferencesProvider
+import pe.pcs.maestrodetallesqlserver.common.UtilsSecurity
 import java.sql.Connection
 import java.sql.DriverManager
 import javax.inject.Inject

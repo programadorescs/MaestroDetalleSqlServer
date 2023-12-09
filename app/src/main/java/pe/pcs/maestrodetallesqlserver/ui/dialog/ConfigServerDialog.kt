@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
+import pe.pcs.maestrodetallesqlserver.common.UtilsMessage
 import pe.pcs.maestrodetallesqlserver.databinding.DialogoConfigServerBinding
 import pe.pcs.maestrodetallesqlserver.ui.viewmodel.ConfigServerViewModel
 

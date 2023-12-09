@@ -1,4 +1,4 @@
-package pe.pcs.maestrodetallesqlserver.core
+package pe.pcs.maestrodetallesqlserver.common
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

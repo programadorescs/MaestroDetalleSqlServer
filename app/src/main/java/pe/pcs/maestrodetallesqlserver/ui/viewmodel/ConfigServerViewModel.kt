@@ -7,9 +7,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import pe.pcs.maestrodetallesqlserver.core.PreferencesKey
-import pe.pcs.maestrodetallesqlserver.core.PreferencesProvider
-import pe.pcs.maestrodetallesqlserver.core.UtilsSecurity
+import pe.pcs.maestrodetallesqlserver.common.PreferencesKey
+import pe.pcs.maestrodetallesqlserver.common.PreferencesProvider
+import pe.pcs.maestrodetallesqlserver.common.UtilsSecurity
 
 class ConfigServerViewModel: ViewModel() {
 

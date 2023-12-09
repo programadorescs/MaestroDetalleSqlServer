@@ -3,7 +3,7 @@ package pe.pcs.maestrodetallesqlserver.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
+import pe.pcs.maestrodetallesqlserver.common.UtilsCommon
 import pe.pcs.maestrodetallesqlserver.data.model.DetallePedidoModel
 import pe.pcs.maestrodetallesqlserver.databinding.ItemsDetallePedidoRealizadoBinding
 

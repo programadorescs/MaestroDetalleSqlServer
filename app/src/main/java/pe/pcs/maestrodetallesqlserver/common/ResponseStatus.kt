@@ -1,4 +1,4 @@
-package pe.pcs.maestrodetallesqlserver.core
+package pe.pcs.maestrodetallesqlserver.common
 
 // <T> funciona para cualquier tipo de datos que metamos aqui
 sealed class ResponseStatus<T> {

@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
+import pe.pcs.maestrodetallesqlserver.common.UtilsMessage
 import pe.pcs.maestrodetallesqlserver.databinding.ActivityInicioBinding
 import pe.pcs.maestrodetallesqlserver.ui.dialog.ConfigServerDialog
 import pe.pcs.maestrodetallesqlserver.ui.viewmodel.ConfigServerViewModel

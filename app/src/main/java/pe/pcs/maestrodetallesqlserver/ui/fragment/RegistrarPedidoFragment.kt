@@ -11,9 +11,9 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import pe.pcs.maestrodetallesqlserver.core.UtilsCommon
-import pe.pcs.maestrodetallesqlserver.core.UtilsMessage
-import pe.pcs.maestrodetallesqlserver.core.ResponseStatus
+import pe.pcs.maestrodetallesqlserver.common.UtilsCommon
+import pe.pcs.maestrodetallesqlserver.common.UtilsMessage
+import pe.pcs.maestrodetallesqlserver.common.ResponseStatus
 import pe.pcs.maestrodetallesqlserver.data.model.DetallePedidoModel
 import pe.pcs.maestrodetallesqlserver.data.model.PedidoModel
 import pe.pcs.maestrodetallesqlserver.databinding.FragmentRegistrarPedidoBinding
